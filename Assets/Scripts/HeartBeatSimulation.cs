@@ -10,6 +10,7 @@ public class HeartBeatSimulation : MonoBehaviour
     private MeshFilter meshFilter;
     private int currentMeshIndex = 0;
     private float timer;
+    private bool isPaused = false; // Flag to control the pause state
 
     void Start()
     {
@@ -19,11 +20,25 @@ public class HeartBeatSimulation : MonoBehaviour
 
     void Update()
     {
-        timer -= Time.deltaTime;
-        if (timer <= 0f)
+        // Check for pause/unpause input using OVRInput
+        if (OVRInput.GetDown(OVRInput.Button.One)) // A button for pause
         {
-            SwapHeartMesh();
-            timer = beatInterval;
+            isPaused = true;
+        }
+        if (OVRInput.GetDown(OVRInput.Button.Two)) // B button for unpause
+        {
+            isPaused = false;
+        }
+
+        // Update the timer and swap meshes only if not paused
+        if (!isPaused)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0f)
+            {
+                SwapHeartMesh();
+                timer = beatInterval;
+            }
         }
     }
 
