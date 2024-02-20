@@ -345,7 +345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4beb623325e491246a502bbdff1107c6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2
+      value: 1.299
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4beb623325e491246a502bbdff1107c6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -760,6 +760,17 @@ Transform:
   - {fileID: 1791930877}
   m_Father: {fileID: 1727208428}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &662067486 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5679112963574900116, guid: 4c0ee7a14e52ba544b89c2f777670cca, type: 3}
+  m_PrefabInstance: {fileID: 1115932836}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e06fe30fd4efa954b8f53ccc8da8f46b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &681313725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,6 +1012,14 @@ PrefabInstance:
       propertyPath: _trackingToWorldTransformer
       value: 
       objectReference: {fileID: 1778105403}
+    - target: {fileID: 5679112963091543778, guid: 4c0ee7a14e52ba544b89c2f777670cca, type: 3}
+      propertyPath: _interactors.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679112963091543778, guid: 4c0ee7a14e52ba544b89c2f777670cca, type: 3}
+      propertyPath: _interactors.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5679112963628884800, guid: 4c0ee7a14e52ba544b89c2f777670cca, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1319,8 +1338,8 @@ GameObject:
   - component: {fileID: 1399194642}
   - component: {fileID: 1399194643}
   - component: {fileID: 1399194645}
-  - component: {fileID: 1399194644}
   - component: {fileID: 1399194646}
+  - component: {fileID: 1399194647}
   m_Layer: 0
   m_Name: Heart1
   m_TagString: Untagged
@@ -1399,7 +1418,7 @@ Transform:
   m_GameObject: {fileID: 1399194636}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.704, z: 0.474}
+  m_LocalPosition: {x: 0.3, y: 1.087, z: 0.633}
   m_LocalScale: {x: 0.020884, y: 0.020884, z: 0.020884}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1473,33 +1492,6 @@ MonoBehaviour:
   meshFilter: {fileID: 0}
   heartFrames: []
   animationSpeed: 1
---- !u!54 &1399194644
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1399194636}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &1399194645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1540,6 +1532,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1399194647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399194636}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f4c7cb5af0c514581db627de3c64a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 100
 --- !u!1 &1447984916
 GameObject:
   m_ObjectHideFlags: 0
@@ -1870,6 +1875,10 @@ PrefabInstance:
       propertyPath: _interactors.Array.data[4]
       value: 
       objectReference: {fileID: 1714712004}
+    - target: {fileID: 7048434468649777690, guid: ea16c3c8c1688234fa81a4f39339bf1b, type: 3}
+      propertyPath: _interactors.Array.data[5]
+      value: 
+      objectReference: {fileID: 662067486}
     - target: {fileID: 7312179887322021490, guid: ea16c3c8c1688234fa81a4f39339bf1b, type: 3}
       propertyPath: _cameraRigRef
       value: 

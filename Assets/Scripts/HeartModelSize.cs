@@ -9,13 +9,13 @@ public class HeartScalerInstant : MonoBehaviour
     void Update()
     {
         // Check for up arrow key press to scale up by 20%
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (OVRInput.GetDown(OVRInput.RawButton.Y))
         {
             transform.localScale *= scaleFactor;
         }
 
         // Check for down arrow key press to scale down by 20%
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (OVRInput.GetDown(OVRInput.RawButton.X))
         {
             transform.localScale /= scaleFactor;
         }
