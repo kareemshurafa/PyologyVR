@@ -3833,10 +3833,8 @@ GameObject:
   - component: {fileID: 1399194638}
   - component: {fileID: 1399194637}
   - component: {fileID: 1399194641}
-  - component: {fileID: 1399194642}
   - component: {fileID: 1399194645}
   - component: {fileID: 1399194646}
-  - component: {fileID: 1399194647}
   m_Layer: 0
   m_Name: Heart1
   m_TagString: Untagged
@@ -3961,19 +3959,6 @@ MonoBehaviour:
   - {fileID: 8730107412150907346, guid: 0da638aefda0e8d419e9c89d147c45fa, type: 3}
   - {fileID: 1979907468790738985, guid: cc077133fc8cccd489df8f3c70b07db1, type: 3}
   beatInterval: 0.1
---- !u!114 &1399194642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1399194636}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd3300ce6d815294abb006f566033e2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scaleFactor: 1.2
 --- !u!114 &1399194645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4014,19 +3999,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1399194647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1399194636}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46f4c7cb5af0c514581db627de3c64a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 100
 --- !u!1 &1408633845
 GameObject:
   m_ObjectHideFlags: 0

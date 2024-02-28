@@ -23,11 +23,14 @@ public class HeartBeatSimulation : MonoBehaviour
         // Check for pause/unpause input using OVRInput
         if (OVRInput.GetDown(OVRInput.Button.One)) // A button for pause
         {
-            isPaused = true;
-        }
-        if (OVRInput.GetDown(OVRInput.Button.Two)) // B button for unpause
-        {
-            isPaused = false;
+            if (isPaused == true)
+            {
+                isPaused = false;
+            }
+            else if (isPaused == false)
+            {
+                isPaused = true;
+            }
         }
 
         // Update the timer and swap meshes only if not paused
