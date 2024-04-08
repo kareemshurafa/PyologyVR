@@ -1,7 +1,4 @@
-// Pcx - Point cloud importer & renderer for Unity
-// https://github.com/keijiro/Pcx
-
-Shader "Point Cloud/Point"
+Shader "Point Cloud/Point With Transparency"
 {
     Properties
     {
@@ -11,7 +8,9 @@ Shader "Point Cloud/Point"
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "Queue"="Transparent" "RenderType"="Transparent" "IgnoreProjector"="True" }
+        Blend SrcAlpha OneMinusSrcAlpha
+        ZWrite Off
         Pass
         {
             CGPROGRAM
@@ -85,7 +84,9 @@ Shader "Point Cloud/Point"
 
             half4 Fragment(Varyings input) : SV_Target
             {
-                half4 c = half4(input.color, _Tint.a);
+                // Assume the alpha for the transparency comes from the intensity of the color
+                float alpha = dot(input.color, half3(0.3333, 0.3333, 0.3333)); // Simple average
+                half4 c = half4(input.color, alpha * _Tint.a);
                 UNITY_APPLY_FOG(input.fogCoord, c);
                 return c;
             }
