@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class HeartBeatSimulation : MonoBehaviour
 {
-    public Mesh[] heartMeshes; // Array to hold your heart meshes
-    public float beatInterval = 0.1f; // Time between beats, adjust as needed
+    public Mesh[] heartMeshes; // array for heart meshes
+    public float beatInterval = 0.1f; // time interval for the beating simulation
 
     private MeshFilter meshFilter;
     private int currentMeshIndex = 0;
     private float timer;
-    private bool isPaused = false; // Flag to control the pause state
+    private bool isPaused = false; 
 
+    // Reference - adapted from ChatGPT 4.0 (https://chat.openai.com/)
     void Start()
     {
-        meshFilter = GetComponent<MeshFilter>(); // Ensure this script is attached to a GameObject with a MeshFilter component
+        meshFilter = GetComponent<MeshFilter>(); // obtain the MeshFilter component of the GameObject
         timer = beatInterval;
     }
 
@@ -39,6 +40,7 @@ public class HeartBeatSimulation : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer <= 0f)
             {
+                // run the heart mesh loop script
                 SwapHeartMesh();
                 timer = beatInterval;
             }
@@ -47,6 +49,7 @@ public class HeartBeatSimulation : MonoBehaviour
 
     void SwapHeartMesh()
     {
+        // move to the next mesh 
         currentMeshIndex = (currentMeshIndex + 1) % heartMeshes.Length;
         meshFilter.mesh = heartMeshes[currentMeshIndex];
     }
