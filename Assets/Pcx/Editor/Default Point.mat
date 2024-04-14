@@ -29,5 +29,5 @@ Material:
     - _Distance: 1
     - _PointSize: 0.0001
     m_Colors:
-    - _Tint: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _Tint: {r: 0.5, g: 0.5, b: 0.5, a: 0.6666667}
   m_BuildTextureStacks: []
