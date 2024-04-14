@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class OpacityScript : MonoBehaviour
 {
     private Renderer heartRenderer;
+    
+    private Slider opacitySlider;
     private float opacityValue;
 
     // Start is called before the first frame update
@@ -21,7 +23,8 @@ public class OpacityScript : MonoBehaviour
     }
 
     public void OnValueChanged(){
-        opacityValue = GameObject.Find("OpacitySlider").GetComponent<Slider>().value;
+        opacitySlider = GameObject.Find("OpacitySlider").GetComponent<Slider>();
+        opacityValue = opacitySlider.value;
         Color updatedColor = new Color(1.0f, 0.33f, 0.33f, opacityValue);
         heartRenderer.material.SetColor("_Color", updatedColor);
     }
