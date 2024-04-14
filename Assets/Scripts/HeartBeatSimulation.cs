@@ -1,3 +1,4 @@
+// Reference - lines 16 to 55 are adapted from ChatGPT 4.0 (https://chat.openai.com/)
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,6 @@ public class HeartBeatSimulation : MonoBehaviour
     private float timer; // used during incrementing of the looping
     private bool isPaused = false; // check to see if the pause button is pressed down or not
 
-    // Reference - lines 16 to 55 are adapted from ChatGPT 4.0 (https://chat.openai.com/)
     void Start()
     {
         meshFilter = GetComponent<MeshFilter>(); // obtain the MeshFilter component of the GameObject
