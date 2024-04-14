@@ -1,4 +1,4 @@
-// Reference - lines 16 to 55 are adapted from ChatGPT 4.0 (https://chat.openai.com/)
+// Reference - adapted from ChatGPT 4.0 (https://chat.openai.com/)
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
