@@ -5,7 +5,7 @@ using UnityEngine;
 public class HeartBeatSimulation : MonoBehaviour
 {
     public Mesh[] heartMeshes; // array for heart meshes
-    public float beatInterval = 0.1f; // time interval for the beating simulation
+    public float heartbeatInterval = 0.1f; // time interval for the beating simulation
 
     private MeshFilter meshFilter;
     private int currentMeshIndex = 0;
@@ -16,10 +16,10 @@ public class HeartBeatSimulation : MonoBehaviour
     void Start()
     {
         meshFilter = GetComponent<MeshFilter>(); // obtain the MeshFilter component of the GameObject
-        timer = beatInterval;
+        timer = heartbeatInterval;
     }
 
-    void Update()
+    void Update() // script runs every frame 
     {
         // Check for pause/unpause input using OVRInput
         if (OVRInput.GetDown(OVRInput.Button.One)) // A button for pause
@@ -34,15 +34,15 @@ public class HeartBeatSimulation : MonoBehaviour
             }
         }
 
-        // Update the timer and swap meshes only if not paused
+        // if not paused - i.e. during normal runtime
         if (!isPaused)
         {
-            timer -= Time.deltaTime;
-            if (timer <= 0f)
+            timer -= Time.deltaTime; // takes time since last frame and subtracts from current timer
+            if (timer <= 0f) // when timer reaches 0 or under 0
             {
-                // run the heart mesh loop script
+                // run the heart mesh loop script, which moves to the next heart mesh
                 SwapHeartMesh();
-                timer = beatInterval;
+                timer = heartbeatInterval;
             }
         }
     }
