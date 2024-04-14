@@ -5,7 +5,7 @@ using EzySlice;
 
 public class SliceObject : MonoBehaviour
 {
-    public Transform planeDebug; // references plane
+    public Transform planeDebug; // references plane position
     public GameObject heart; // references target object to slice
 
     public Material crossSectionMaterial; // material object to store the heart model material
