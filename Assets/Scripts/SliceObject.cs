@@ -8,57 +8,52 @@ public class SliceObject : MonoBehaviour
     public Transform planeDebug; // references plane
     public GameObject heart; // references target object to slice
 
-    public Material cross_section_material;
+    public Material crossSectionMaterial; // material object to store the heart model material
 
-    private GameObject upperHull;
+    private GameObject upperHull; // creating a gameobject for the upper hull
 
-    private GameObject lowerHull;
+    private GameObject lowerHull; // creating a gameobject for the lower hull
     
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        // debugging
+        // used for debugging on PC
         if(Input.GetKeyDown(KeyCode.RightArrow))
         {
             Slice(heart);
             Debug.Log("sliced heart");
         }
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow)){
-            RemoveHulls();
-            Debug.Log("Removed hulls");
-        }
-
-
-
     }
 
-    // function for slicing heart mesh - implemented with EzySlice library
+    // function for slicing heart mesh on UI button press - implemented with EzySlice open-source library
     public void Slice(GameObject heart)
     {
-        // check to see if hulls exist
+        // the following checks are to see if a hull already exists or not
+        // this works by trying to find a game object under the "__Hull" names
+        // if there is the existance of previous hulls, these are destroyed
         
-        // EzySlice already contains a check to see if the plane is correctly slicing the target object or not
+        GameObject upperHullDestroyer = GameObject.Find("Upper_Hull");
+        if (upperHullDestroyer != null){
+            Destroy(upperHullDestroyer);
+        }
+        
+        GameObject lowerHullDestroyer = GameObject.Find("Lower_Hull");
+        if (lowerHullDestroyer != null){
+            Destroy(lowerHullDestroyer);
+        }
+        
+        // EzySlice contains a check to see if the plane is correctly slicing the target object or not
         SlicedHull hull = heart.Slice(planeDebug.position, planeDebug.up); // needs plane position and normal to slice object
 
-        GameObject upperHull = hull.CreateUpperHull(heart, cross_section_material); // can generate mesh using plane coordinate
-        upperHull.transform.position = new Vector3(0.45f, 1.0f, 0.1f);
-        upperHull.transform.Rotate(0, 90, 0);
+        if(hull != null){ // check to see if the plane is aligned on the heart mesh
+            GameObject upperHull = hull.CreateUpperHull(heart, crossSectionMaterial); // can generate mesh using plane coordinate
+            upperHull.transform.position = new Vector3(0.45f, 1.0f, 0.1f); // positioning and orientiation for the user
+            upperHull.transform.Rotate(0, 90, 0);
         
-        GameObject lowerHull = hull.CreateLowerHull(heart, cross_section_material);
-        lowerHull.transform.position = new Vector3(0.75f, 1.0f, 0.1f);
-        lowerHull.transform.Rotate(0, 90, 0);
+            GameObject lowerHull = hull.CreateLowerHull(heart, crossSectionMaterial);
+            lowerHull.transform.position = new Vector3(0.75f, 1.0f, 0.1f);
+            lowerHull.transform.Rotate(0, 90, 0);
+        }
         
-    }
-    // function to remove the generated hulls
-    public void RemoveHulls(){
-        Destroy(upperHull);
-        Destroy(lowerHull);
     }
 }

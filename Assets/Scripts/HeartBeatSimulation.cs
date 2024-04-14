@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class HeartBeatSimulation : MonoBehaviour
 {
-    public Mesh[] heartMeshes; // array for heart meshes
+    public Mesh[] heartMeshes; // array to hold the heart meshes
     public float heartbeatInterval = 0.1f; // time interval for the beating simulation
 
-    private MeshFilter meshFilter;
-    private int currentMeshIndex = 0;
-    private float timer;
-    private bool isPaused = false; 
+    private MeshFilter meshFilter; // the mesh filter being used for rendering
+    private int currentMeshIndex = 0; // start of the array of meshes
+    private float timer; // used during incrementing of the looping
+    private bool isPaused = false; // check to see if the pause button is pressed down or not
 
-    // Reference - adapted from ChatGPT 4.0 (https://chat.openai.com/)
+    // Reference - lines 16 to 55 are adapted from ChatGPT 4.0 (https://chat.openai.com/)
     void Start()
     {
         meshFilter = GetComponent<MeshFilter>(); // obtain the MeshFilter component of the GameObject
-        timer = heartbeatInterval;
+        timer = heartbeatInterval; // initialise the timer to be equal to the heart beat interval value
     }
 
     void Update() // script runs every frame 
     {
-        // Check for pause/unpause input using OVRInput
+        // check for pause/unpause on controller input using OVRInput
         if (OVRInput.GetDown(OVRInput.Button.One)) // A button for pause
         {
             if (isPaused == true)
@@ -47,10 +47,14 @@ public class HeartBeatSimulation : MonoBehaviour
         }
     }
 
+    // function to swap the heart meshes for the looping animation
     void SwapHeartMesh()
     {
-        // move to the next mesh 
+        // performs modulus calculation that outputs an incrementing currentMeshIndex value
+        // when the index value is equal to the length of the heart meshes,
+        // it equals to zero - i.e, the mesh that is rendered goes back to the start of the array
         currentMeshIndex = (currentMeshIndex + 1) % heartMeshes.Length;
+        Debug.Log("Value of mesh index" + currentMeshIndex);
         meshFilter.mesh = heartMeshes[currentMeshIndex];
     }
 
