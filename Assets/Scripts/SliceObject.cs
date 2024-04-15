@@ -1,3 +1,4 @@
+// SliceObject.cs was implemented using the open-source library EzySlice - https://github.com/DavidArayan/ezy-slice
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
