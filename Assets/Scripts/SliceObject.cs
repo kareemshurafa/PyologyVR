@@ -6,7 +6,7 @@ using EzySlice;
 
 public class SliceObject : MonoBehaviour
 {
-    public Transform planeDebug; // references plane position
+    public Transform slicingPlane; // references plane position
     public GameObject heart; // references target object to slice
 
     public Material crossSectionMaterial; // material object to store the heart model material
@@ -44,7 +44,7 @@ public class SliceObject : MonoBehaviour
         }
         
         // EzySlice contains a check to see if the plane is correctly slicing the target object or not
-        SlicedHull hull = heart.Slice(planeDebug.position, planeDebug.up); // needs plane position and normal to slice object
+        SlicedHull hull = heart.Slice(slicingPlane.position, slicingPlane.up); // needs plane position and normal to slice object
 
         if(hull != null){ // check to see if the plane is aligned on the heart mesh
             GameObject upperHull = hull.CreateUpperHull(heart, crossSectionMaterial); // can generate mesh using plane coordinate
